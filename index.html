@@ -21,6 +21,10 @@
   <p id="definition" class="lead">Our service is fun and awesome, but you must be 13 years old to join</p>
 
   <div ng-controller="FormCtrl">
+    <div ng-show="showSuccessAlert" class="alert alert-success" role="alert">
+        <p>Well done! Now you are a part of our SUPER DUPER AWSOME Club!</p>
+        <p>Welcome to the family newbiee! :D</p>
+    </div>  
 
     <form name="signUpForm" novalidate role="form">
 
