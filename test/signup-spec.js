@@ -1,9 +1,9 @@
 //sidnup-spec.js
 'use strict';
 
-describe('Submit Buton', function(){
+describe('Sign-Up Form', function(){
 
-    it('should be enable aslong as the form have valid input', function() {
+    it('submit button should be enable aslong as the form have valid input', function() {
 
         //open the webpage
         browser.get('http://localhost:8080');
@@ -34,4 +34,24 @@ describe('Submit Buton', function(){
         input_confirm.clear();
         expect(button.isEnabled()).toEqual(false);
     });
+
+    it('eamil field should show validation error if the input is not a valid email address', function() {
+        //open the webpage
+        browser.get('http://localhost:8080');
+
+        var input_email = element(by.css('#email'));
+        var error = element(by.css('#email-error'));
+        var input_fname = element(by.css('#firstName'));
+
+        //has valid content, massage is hide
+        input_email.sendKeys('a@a.com');
+        expect(error.isDisplayed()).toEqual(false);
+
+        //has invalid content and selected other field, massage is shown
+        input_email.clear();
+        input_email.sendKeys('123');
+        input_fname.sendKeys('Alex');
+        expect(error.isDisplayed()).toEqual(true);
+    });
+
 });

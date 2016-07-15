@@ -27,7 +27,7 @@
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.email.$invalid && signUpForm.email.$touched}">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email"  ng-model="email" class="form-control" placeholder="email address" required>
-        <p ng-show="signUpForm.email.$invalid && signUpForm.email.$touched">this is not a valid email address</p>
+        <p id="email-error" class="error" ng-show="signUpForm.email.$invalid && signUpForm.email.$touched">this is not a valid email address</p>
       </div>
 
       <div class="form-group">
@@ -38,25 +38,25 @@
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.lastName.$invalid && signUpForm.lastName.$touched}">
         <label for="lastName">Last Name:</label>
         <input type="text" name="lastName" id="lastName" ng-model="lastName" class="form-control" placeholder="your last name" required>
-        <p ng-show="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">we need to know your last name</p>
+        <p class="error" ng-show="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">we need to know your last name</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched}">
         <label for="birthdate">Birthdate:</label>
         <input type="text" name="birthdate" id="birthdate" ng-model="birthdate" class="form-control" placeholder="DD/MM/YYYY" required>
-        <p ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched">sorry, you must be at least 13 to sign up</p>
+        <p class="error" ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched">sorry, you must be at least 13 to sign up</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.password.$invalid && signUpForm.password.$touched}">
         <label for="password">Password:</label>
         <input type="text" name="password" id="password" ng-model="password" class="form-control" required>
-        <p ng-show="signUpForm.password.$invalid && signUpForm.password.$touched">please enter password</p>
+        <p class="error" ng-show="signUpForm.password.$invalid && signUpForm.password.$touched">please enter password</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$touched}">
         <label for="passwordConfirm">Confirm Password:</label>
         <input type="text" name="passwordConfirm" id="passwordConfirm" ng-model="passwordConfirm" class="form-control" required>
-        <p ng-show="signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$touched">please re-enter password</p>
+        <p class="error" ng-show="signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$touched">please re-enter password</p>
       </div>
       <button type="reset" ng-click="reset(signUpForm)" class="btn btn-default">Reset!</button>
       <button id="submit-button" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid" class="btn btn-primary">Sign me up!</button>
