@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Authors" content="Joy Jean, Jessie Kuo, Alex Wu">
 
-    <title>My Movie Page</title>
+    <title>SignUp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="">
 
     <!-- load Angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-    <!-- load our script -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>    <!-- load our script -->
     <script src="js/app.js"></script>
 </head>
 
@@ -23,40 +23,38 @@
     <p>Our service is fun and awesome, but you must be 13 years old to join</p>
     <main>
 
-        <form name = "signUpForm" action="" method="">
-            <div>
-
         <form action="" method=""  name="signUpForm" novalidate role="form">
             <div class="form-group">
-
                 <label for="email">Email</label><br>
-                <input type="email" id="email" name="user_email" placeholder="email address" class="form-control" ng-model="email"/>
+                <input type="email" id="email" name="email" placeholder="email address" class="form-control" ng-model="email"/>
             </div>
+            
             <div class="form-group">
-                <label for="first-name">First Name</label><br>
-                <input type="text" id="first-name" name="user_first_name" placeholder="your first name" class="form-control" />
+                <label for="firstname">First Name</label><br>
+                <input type="text" id="firstname" name="firstname" placeholder="your first name" class="form-control" />
             </div>
-            <div class="form-group">
-                <label for="last-name">Last Name</label><br>
-
-                <input type="text" id="last-name" name="user_last_name" placeholder="your last name" required/>
-                <p ng-show="signUpForm.last-name.$invalid && signUpForm.last-name.$dirty">we need to know your last name</p>
-
-                <input type="text" id="last-name" name="user_last_name" placeholder="your last name" class="form-control" />
-
+            
+            <div class="form-group" >
+                <label for="lastname">Last Name</label><br>
+                <input class="form-control" type="text" id="lastname" name="lastname" ng-model="lastname" placeholder="your last name" required/>
+                <p ng-show="signUpForm.lastname.$invalid && signUpForm.lastname.$dirty">we need to know your last name</p>
             </div>
+            
             <div class="form-group">
                 <label for="birthdate">Birthdate</label><br>
-                <input type="datetime" id="birthdate" name="user_birthdate" placeholder="your birthdate" class="form-control" />
+                <input type="datetime" id="birthdate" name="birthdate" placeholder="your birthdate" class="form-control" />
             </div>
+            
             <div class="form-group">
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="user_password" class="form-control" />
+                <input type="password" id="password" name="password" class="form-control" />
             </div>
+            
             <div class="form-group">
                 <label for="confirm">Confirm Password</label><br>
-                <input type="password" id="confirm" name="user_confirm" class="form-control" />
+                <input type="password" id="confirm" name="confirm" class="form-control" />
             </div>
+            
             <br>
             <button type="reset">Reset</button>
             <button type="submit" ng-click="submitForm(signUpForm)" ng-disabled="payForm.$invalid">Sign Me Up!</button>
