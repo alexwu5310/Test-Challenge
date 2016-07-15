@@ -24,7 +24,7 @@
     <h1>Sign Up</h1>
     <p>Our service is fun and awesome, but you must be 13 years old to join</p>
     <main>
-        <form action="" method="">
+        <form name = "signUpForm" action="" method="">
             <div>
                 <label for="email">Email</label><br>
                 <input type="email" id="email" name="user_email" placeholder="email address"/>
@@ -35,7 +35,8 @@
             </div>
             <div>
                 <label for="last-name">Last Name</label><br>
-                <input type="text" id="last-name" name="user_last_name" placeholder="your last name" />
+                <input type="text" id="last-name" name="user_last_name" placeholder="your last name" required/>
+                <p ng-show="signUpForm.last-name.$invalid && signUpForm.last-name.$dirty">we need to know your last name</p>
             </div>
             <div>
                 <label for="birthdate">Birthdate</label><br>
