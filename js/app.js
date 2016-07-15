@@ -25,6 +25,5 @@ myApp.controller('FormCtrl', ['$scope', function($scope){
         else {
             return true
         }
-    }
-
+    }    
 }]);
