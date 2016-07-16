@@ -13,13 +13,11 @@ describe('Birthdate', function() {
     it('should display error message if age not over 13', function() { 
         age.sendKeys('10/25/2009');
         expect(error.isDisplayed()).toBe(true);
-
     });
 
     it('should not display error message if over 13', function() {
         age.sendKeys('10/25/1995');
         expect(error.isDisplayed()).toBe(false);
-
     });
 
     it('should display error message if not a date', function() {
