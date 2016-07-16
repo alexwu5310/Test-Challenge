@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="SignUpApp">
 <head>
+  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,6 @@
   <title>Sign Up Form</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
-
   <!-- load angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <!-- load our script -->
@@ -42,30 +42,30 @@
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.lastName.$invalid && signUpForm.lastName.$touched}">
         <label for="lastName">Last Name:</label>
         <input type="text" name="lastName" id="lastName" ng-model="lastName" class="form-control" placeholder="your last name" required>
-        <p class="error" ng-show="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">we need to know your last name</p>
+        <p class="error" id="last-name" ng-show="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">we need to know your last name</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched}">
         <label for="birthdate">Birthdate:</label>
-        <input type="text" name="birthdate" id="birthdate" ng-model="birthdate" class="form-control" placeholder="DD/MM/YYYY" required>
-        <p class="error" ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched">sorry, you must be at least 13 to sign up</p>
+        <input type="text" name="birthdate" id="birthdate" ng-model="birthdate" class="form-control" placeholder="DD/MM/YYYY" required ng-change="validateDOB()">
+        <p id="showError" ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$dirty">sorry, you must be at least 13 to sign up</p>
       </div>
-
+      
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.password.$invalid && signUpForm.password.$touched}">
         <label for="password">Password:</label>
         <input type="text" name="password" id="password" ng-model="password" class="form-control" required>
-        <p class="error" ng-show="signUpForm.password.$invalid && signUpForm.password.$touched">please enter password</p>
+        <p class="error" ng-show="signUpForm.password.$invalid && signUpForm.password.$dirty">please enter password</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$touched}">
         <label for="passwordConfirm">Confirm Password:</label>
         <input type="text" name="passwordConfirm" id="passwordConfirm" ng-model="passwordConfirm" class="form-control" required>
-        <p class="error" ng-show="signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$touched">please re-enter password</p>
+        <p id="errorMess" class="error" ng-show="signUpForm.passwordConfirm.$invalid && signUpForm.passwordConfirm.$dirty">please re-enter password</p>
       </div>
       <button type="reset" ng-click="reset(signUpForm)" class="btn btn-default">Reset!</button>
       <button id="submit-button" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid" class="btn btn-primary">Sign me up!</button>
-    </form>
 
+    </form>
   </div> <!-- end form wrapper -->
 </body>
 </html>
