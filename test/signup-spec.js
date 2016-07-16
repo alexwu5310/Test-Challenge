@@ -8,7 +8,7 @@ beforeEach(function() {
 describe('Birthdate', function() {
     browser.get('http://localhost:8080/index.html');
     var age = element(by.css('#birthdate'));
-    var error = element(by.css('#birth-date'));
+    var error = element(by.css('#showError'));
     
     it('should display error message if age not over 13', function() { 
         age.sendKeys('10/25/2009');
@@ -26,7 +26,6 @@ describe('Birthdate', function() {
     });
 });
 
-//works
 describe('Last Name Input', function () {
    browser.get('http://localhost:8080/index.html');
    var lastName = element(by.css('#lastName'));
@@ -42,16 +41,24 @@ describe('Last Name Input', function () {
     })
 });
 
-//doesn't work yet
 describe('Password Input', function() {
     browser.get('http://localhost:8080/index.html');
     var password = element(by.css('#password'));
     var passwordConfirm = element(by.css('#passwordConfirm'));
+    var error = element(by.css('#errorMess'));
     
     it('should display error message at passwordConfirm when passwords do not match', function() {
         password.sendKeys('apwd');
-        passwordConfirm.sendKeys('apwd');
+        passwordConfirm.sendKeys('123');
+        expect(error.isDisplayed()).toBe(true);
         
-    })
+    });
+
+    it('should display error message at passwordConfirm when passwords matches', function() {
+        password.sendKeys('apwd');
+        passwordConfirm.sendKeys('apwd');
+        expect(error.isDisplayed()).toBe(false);
+        
+    });
 });
 

@@ -5,7 +5,7 @@ myApp.controller('FormCtrl', ['$scope', function($scope){
     $scope.submitForm = function(form){
         console.log('$valid', form.birthdate.$valid)
         console.log('$error', form.birthdate.$error)
-        confirmPassword();
+        //confirmPassword();
         // if(form.$valid) {
         // 	window.alert('Payment info has been submitted!');
         // }
@@ -28,20 +28,24 @@ myApp.controller('FormCtrl', ['$scope', function($scope){
         }
         else {
             $scope.signUpForm.birthdate.$setValidity('birthdate', true);
-            return true
+            return true;
         }
-    } 
+    };
     
-    function confirmPassword() {
-        var same = (passwordConfirm.value === password.value);
-        if(same) {
+    $scope.matching = function() {
+        //console.log('entered');
+        var password = document.forms["signUpForm"]["password"].value;
+        console.log(password);
+        var passwordConfirm = document.forms["signUpForm"]["passwordConfirm"].value;        
+        console.log(passwordConfirm);
+
+        if (password === passwordConfirm) {
             $scope.signUpForm.passwordConfirm.$setValidity('passwordConfirm', true);
         } else {
             $scope.signUpForm.passwordConfirm.$setValidity('passwordConfirm', false);
-            //above works
-            //document.getElementById("#password-confirm").innerHTML = "passwords do not match";
+            $s
         }
-    }
+    };
 
 
 }]);
