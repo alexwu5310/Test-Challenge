@@ -43,8 +43,8 @@
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched}">
         <label for="birthdate">Birthdate:</label>
-        <input type="text" name="birthdate" id="birthdate" ng-model="birthdate" class="form-control" placeholder="DD/MM/YYYY" required>
-        <p ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$touched">sorry, you must be at least 13 to sign up</p>
+        <input type="text" name="birthdate" id="birthdate" ng-model="birthdate" class="form-control" placeholder="DD/MM/YYYY" required ng-change="validateDOB()">
+        <p id="birth-date" ng-show="signUpForm.birthdate.$invalid && signUpForm.birthdate.$dirty">sorry, you must be at least 13 to sign up</p>
       </div>
 
       <div class="form-group" ng-class="{'form-group': true, 'has-error': signUpForm.password.$invalid && signUpForm.password.$touched}">
