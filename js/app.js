@@ -43,7 +43,6 @@ myApp.controller('FormCtrl', ['$scope', function($scope){
             $scope.signUpForm.passwordConfirm.$setValidity('passwordConfirm', true);
         } else {
             $scope.signUpForm.passwordConfirm.$setValidity('passwordConfirm', false);
-            $s
         }
     };
 
