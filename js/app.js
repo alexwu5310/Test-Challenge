@@ -5,13 +5,7 @@ myApp.controller('FormCtrl', ['$scope', function($scope){
     $scope.submitForm = function(form){
         console.log('$valid', form.birthdate.$valid)
         console.log('$error', form.birthdate.$error)
-        //confirmPassword();
-        // if(form.$valid) {
-        // 	window.alert('Payment info has been submitted!');
-        // }
-        // else {
-        // 	window.alert('There was an error submitting your payment. Please check that your information is correct.');
-        // }
+        $scope.showSuccessAlert = true;
     };
     
     $scope.validateDOB = function() {
